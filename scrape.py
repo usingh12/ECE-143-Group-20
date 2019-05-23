@@ -8,17 +8,17 @@ from tqdm import tqdm
 from bs4 import BeautifulSoup
 
 contents = []
-# urls = [ 'https://www.allrecipes.com/recipe/231509']
+urls = [ 'https://www.allrecipes.com/recipe/231509']
 
 url_list = []
 with open('./urlList.pkl', 'rb') as f:
     url_list = pickle.load(f)
 print(len(url_list))
-
-t = tqdm(url_list[49500:-1])
+# print(url_list[61367])
+t = tqdm(url_list[49500:])
 for url in t:
 
-    t.set_description(url)
+    # t.set_description(url)
     page = urlopen(url)
     # with open('text.txt', 'w') as out:
     #     out.write(page.read().decode('utf-8'))
@@ -37,7 +37,6 @@ for url in t:
     for item in ingredients:
         ingredients_list.append(item.text.strip())
 
-
     review_list = []
     # review_urls = Soup.find_all(name = 'a', attrs={'class': 'review-detail__link'})
     # for item in review_urls:
@@ -47,7 +46,7 @@ for url in t:
     #     rating = review_soup.find('meta', attrs={'itemprop': 'ratingValue'})['content']
     #     review_list.append((int(rating), review))
     #     time.sleep(1)
-    reviews = Soup.find_all(name = 'a', attrs={'class': 'review-container clearfix'})
+    reviews = Soup.find_all(name = 'div', attrs={'class': 'review-container clearfix'})
     for item in reviews:
         review_rating = item.find('meta', attrs={'itemprop': 'ratingValue'})['content']
         review = item.find('p', attrs={'itemprop': 'reviewBody'}).text.strip()
@@ -87,7 +86,8 @@ for url in t:
     contents.append(recipe)
     with open('./allrecipes.pkl', 'wb') as f:
         pickle.dump(contents, f)
-    time.sleep(2)
+    time.sleep(1)
+
 
 # print(Soup.text)
 # print(Soup.find('span', attrs={'itemprop': 'calories'}).text)
@@ -99,7 +99,7 @@ for url in t:
 with open('./allrecipes.pkl', 'wb') as f:
     pickle.dump(contents, f)
 
-with open('./allrecipes.pkl', 'rb') as f:
-    contents_load = pickle.load(f)
+# with open('./allrecipes_1.pkl', 'rb') as f:
+#     contents_load = pickle.load(f)
 
-print(len(contents_load))
+# print(len(contents_load))
