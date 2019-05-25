@@ -63,7 +63,8 @@ for url in t:
     preptime = preptime_item.find('span', attrs={'class': 'prepTime__item--time'}).text.strip() if not preptime_item == None else None
     cooktime_item = Soup.find('time', attrs={'itemprop': 'cookTime'})
     cooktime = cooktime_item.find('span', attrs={'class': 'prepTime__item--time'}).text.strip() if not cooktime_item == None else None
-    readyin_time = Soup.find('span', attrs={'class': 'ready-in-time'}).text.strip()
+    readyin_time_item = Soup.find('span', attrs={'class': 'ready-in-time'})
+    readyin_time = readyin_time_item.text.strip() if not readyin_time_item == None else None
 
     title = Soup.find(name = 'title').text
     rating = Soup.find('meta', attrs={'itemprop': 'ratingValue'})['content']
