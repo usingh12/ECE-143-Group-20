@@ -9,16 +9,17 @@ from bs4 import BeautifulSoup
 
 contents = []
 urls = [ 'https://www.allrecipes.com/recipe/231509']
+urls = [ 'https://www.allrecipes.com/recipe/109190']
 
 url_list = []
 with open('./urlList.pkl', 'rb') as f:
     url_list = pickle.load(f)
 print(len(url_list))
-# print(url_list[61367])
+
 t = tqdm(url_list[49500:])
 for url in t:
 
-    # t.set_description(url)
+    t.set_description(url)
     page = urlopen(url)
     # with open('text.txt', 'w') as out:
     #     out.write(page.read().decode('utf-8'))
@@ -52,8 +53,22 @@ for url in t:
         review = item.find('p', attrs={'itemprop': 'reviewBody'}).text.strip()
         review_list.append((int(review_rating), review))
 
+    direction_list = []
+    directions = Soup.find_all(name = 'li', attrs={'class': 'step'})
+    for item in directions:
+        direction = item.find('span', attrs={'class': 'recipe-directions__list--item'}).text.strip()
+        direction_list.append(direction)
+
+    preptime_item = Soup.find('time', attrs={'itemprop': 'prepTime'})
+    preptime = preptime_item.find('span', attrs={'class': 'prepTime__item--time'}).text.strip() if not preptime_item == None else None
+    cooktime_item = Soup.find('time', attrs={'itemprop': 'cookTime'})
+    cooktime = cooktime_item.find('span', attrs={'class': 'prepTime__item--time'}).text.strip() if not cooktime_item == None else None
+    readyin_time = Soup.find('span', attrs={'class': 'ready-in-time'}).text.strip()
+
     title = Soup.find(name = 'title').text
     rating = Soup.find('meta', attrs={'itemprop': 'ratingValue'})['content']
+    num_servings = Soup.find('span', attrs={'ng-bind': 'adjustedServings'}).text
+
     calories = Soup.find('span', attrs={'itemprop': 'calories'}).text
     fat = Soup.find('span', attrs={'itemprop': 'fatContent'}).text
     carbohydrate = Soup.find('span', attrs={'itemprop': 'carbohydrateContent'}).text
@@ -65,9 +80,13 @@ for url in t:
     recipe['link'] = url
     recipe['title'] = title
     recipe['reviews'] = review_list
+    recipe['directions'] = direction_list
     recipe['ingreients'] = ingredients_list
     recipe['catagories'] = catagories_list
     recipe['rating'] = float(rating)
+    recipe['preptime'] = preptime
+    recipe['cooktime'] = cooktime
+    recipe['readyin_time'] = readyin_time
 
     # recipe['calories'] = float(calories.split()[0])
     # recipe['fat'] = float(fat.split()[0])
@@ -88,7 +107,7 @@ for url in t:
         pickle.dump(contents, f)
     time.sleep(1)
 
-
+# print(contents)
 # print(Soup.text)
 # print(Soup.find('span', attrs={'itemprop': 'calories'}).text)
 # print(Soup.find('span', attrs={'itemprop': 'fatContent'}).text)
