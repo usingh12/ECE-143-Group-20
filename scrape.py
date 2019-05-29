@@ -8,15 +8,15 @@ from tqdm import tqdm
 from bs4 import BeautifulSoup
 
 contents = []
-urls = [ 'https://www.allrecipes.com/recipe/231509']
-urls = [ 'https://www.allrecipes.com/recipe/109190']
+# urls = [ 'https://www.allrecipes.com/recipe/231509']
+# urls = [ 'https://www.allrecipes.com/recipe/109190']
 
 url_list = []
-with open('./urlList.pkl', 'rb') as f:
+with open('./url_France.pkl', 'rb') as f:
     url_list = pickle.load(f)
 print(len(url_list))
 
-t = tqdm(url_list[49500:])
+t = tqdm(url_list)
 for url in t:
 
     t.set_description(url)
@@ -82,7 +82,8 @@ for url in t:
     recipe['title'] = title
     recipe['reviews'] = review_list
     recipe['directions'] = direction_list
-    recipe['ingreients'] = ingredients_list
+    recipe['ingredients'] = ingredients_list
+    recipe['num_servings'] = num_servings
     recipe['catagories'] = catagories_list
     recipe['rating'] = float(rating)
     recipe['preptime'] = preptime
@@ -104,8 +105,8 @@ for url in t:
     recipe['sodium'] = sodium
 
     contents.append(recipe)
-    with open('./allrecipes.pkl', 'wb') as f:
-        pickle.dump(contents, f)
+    # with open('./allrecipes_Korea.pkl', 'wb') as f:
+    #     pickle.dump(contents, f)A
     time.sleep(1)
 
 # print(contents)
@@ -116,7 +117,7 @@ for url in t:
 # print(Soup.find('title') == None)
 # print(Soup.find('title').text)
 
-with open('./allrecipes.pkl', 'wb') as f:
+with open('./allrecipes_France.pkl', 'wb') as f:
     pickle.dump(contents, f)
 
 # with open('./allrecipes_1.pkl', 'rb') as f:
