@@ -9,10 +9,10 @@ from bs4 import BeautifulSoup
 
 contents = []
 # urls = [ 'https://www.allrecipes.com/recipe/231509']
-# urls = [ 'https://www.allrecipes.com/recipe/109190']
+# urls = [ 'https://www.allrecipes.com/recipe/53935/chinese-pork-tenderloin/' ]
 
 url_list = []
-with open('./url_France.pkl', 'rb') as f:
+with open('./url_India.pkl', 'rb') as f:
     url_list = pickle.load(f)
 print(len(url_list))
 
@@ -68,7 +68,7 @@ for url in t:
 
     title = Soup.find(name = 'title').text
     rating = Soup.find('meta', attrs={'itemprop': 'ratingValue'})['content']
-    num_servings = Soup.find('span', attrs={'ng-bind': 'adjustedServings'}).text
+    num_servings = Soup.find('meta', attrs={'id': 'metaRecipeServings'}).get('content')
 
     calories = Soup.find('span', attrs={'itemprop': 'calories'}).text
     fat = Soup.find('span', attrs={'itemprop': 'fatContent'}).text
@@ -105,8 +105,8 @@ for url in t:
     recipe['sodium'] = sodium
 
     contents.append(recipe)
-    # with open('./allrecipes_Korea.pkl', 'wb') as f:
-    #     pickle.dump(contents, f)A
+    with open('./allrecipes_India.pkl', 'wb') as f:
+        pickle.dump(contents, f)
     time.sleep(1)
 
 # print(contents)
@@ -117,7 +117,7 @@ for url in t:
 # print(Soup.find('title') == None)
 # print(Soup.find('title').text)
 
-with open('./allrecipes_France.pkl', 'wb') as f:
+with open('./allrecipes_India.pkl', 'wb') as f:
     pickle.dump(contents, f)
 
 # with open('./allrecipes_1.pkl', 'rb') as f:
