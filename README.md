@@ -76,3 +76,5 @@ For installing these packages, you can use either `pip3` or conda install to ins
     pip3 install beautifulsoup4
     
  ### Running the code
+ 1. Run the main.ipynb jupyter notebook to retreive all the relevant plots in the presentation slide.
+ 2. Additional instructions about runnin the code have been provided in the jupyter notebook.
