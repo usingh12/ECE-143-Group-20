@@ -26,7 +26,7 @@ The objective of this project was to see if there is any correlation between dif
 -  Average prep time of a dish was surprisingly correlated to the annual working hours.
 
 ## Instructions on running the code
-- Python Version: 3.7.0
+> Python Version: 3.7.0
 
 #### Python Libraries Requirements
 - beautifulsoup4 >= 4.6.3
@@ -46,4 +46,3 @@ For installing these packages, you can use either `pip3` or conda install to ins
     pip3 install beautifulsoup4
     
  ### Running the code
-- 
