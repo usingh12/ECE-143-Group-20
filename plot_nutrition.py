@@ -77,7 +77,7 @@ class plot_nutrition:
 
         return df
     
-    def plot_bar_line(self, save_path='./bar.html'):
+    def plot_bar_line(self, save_path='./img/bar.html'):
         '''
         Plotting nutrition lines and health data bars.
 
@@ -124,7 +124,7 @@ class plot_nutrition:
         bokeh.plotting.output_file(save_path)
         bokeh.plotting.save(Tabs)
         
-    def plot_scatter(self, save_path='./lr.html'):
+    def plot_scatter(self, save_path='./img/lr.html'):
         '''
         Scatter plot of nutrition and health data.
 
