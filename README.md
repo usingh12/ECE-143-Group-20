@@ -25,6 +25,34 @@ The objective of this project was to see if there is any correlation between dif
 -  Calories, fat and protein has a high correlation with the obesity rate.
 -  Average prep time of a dish was surprisingly correlated to the annual working hours.
 
+## File Structure 
+```bash
+├── README.md
+├── data - Directory having the crwaled data in pickle format
+├── img - Directory having images of the plot
+├── main.ipynb
+├── plot_choropleth.py
+├── plot_cooktime.py
+├── plot_nutrition.py
+├── plot_polar.py
+├── plot_popularity.py
+├── plot_wordcloud.py
+├── preprocess.py
+├── scrape.py
+└── scrapeURL.py
+```
+> 'Allrecipes.com' Website
+>--scrapeURL.py --> To get the URL for all the food items necessary 
+>--scrape.py --> To get the nutritional facts off of the website
+>--preprocess.py --> outputs the data in the form of list of dictionaries
+	-----plot_choropleth.py --> Script for geo plots of obesity rate 
+	-----plot_cooktime.py --> Script for plots of cooktime 
+	-----plot_nutrition.py --> Script for plots related to nutritions 
+	-----plot_polar.py --> Scripts for polar plots of ingredients 
+	-----plot_popularity.py --> Script for plots of popularity 
+	-----plot_wordcloud.py --> Script for plots of ingredients wordcloud 
+	-----------Jupiter Notebook --> to run scripts and display plots
+
 ## Instructions on running the code
 > Python Version: 3.7.0
 
