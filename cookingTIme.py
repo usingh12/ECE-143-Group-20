@@ -1,3 +1,12 @@
+import pickle
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+from preprocess import preprocess
+import matplotlib.patches as mpatches
+
+abr = {'Japan':'JPN', 'Thai':'THA', 'Italy':'ITA', 'China':'CHN', 'France':'FRC', 'Mexico':'MEX', 'Greece':'GRC','India':'IND','Korea':'KOR','USA':'USA'}
+
 def get_cooking_time_graph(countries,files):
     '''
         This function takes in two parameters as inputs. The first one is list of strings
@@ -16,13 +25,6 @@ def get_cooking_time_graph(countries,files):
             Also returns a dictionary with names of countries and their average 
             cooking time rating
     '''
-
-    import pickle
-    import math
-    import matplotlib.pyplot as plt
-    import numpy as np
-    from preprocess import preprocess
-    import matplotlib.patches as mpatches
 
     assert(len(countries)==len(files)), "length of countries and number of files don't match"
     assert(isinstance(countries,list)), "countries has to of type list"
@@ -60,8 +62,6 @@ def get_cooking_time_graph(countries,files):
     high_working = sorted(high_working.items(), key = lambda kv:(kv[1], kv[0])) 
     low_working = sorted(low_working.items(), key = lambda kv:(kv[1], kv[0])) 
 
-    abr = {'Japan':'JPN', 'Thai':'THA', 'Italy':'ITA', 'China':'CHN', 'France':'FRC', 'Mexico':'MEX', 'Greece':'GRC','India':'IND','Korea':'KOR','USA':'USA'}
-
     first_half_names = []
     first_half_times = []
     second_half_names = []
@@ -83,8 +83,6 @@ def get_cooking_time_graph(countries,files):
     ax.set(ylabel='Avg Cooking Time of Main Dishes (min)', #xlabel='Average annual hours worked Rankings',
        title='Avg Cooking Time vs Avg Working Time')
     #ax.grid()
-
-
 
 
     blue_patch = mpatches.Patch(color='blue', label='Countries Ranking 1-10 on Avg Hrs Worked Annually')
