@@ -92,10 +92,6 @@ def get_cooking_time_graph(countries,files):
     ax.set_ylim(0, 230)
     plt.legend(handles=[blue_patch,red_patch],loc=2)
 
-
-
-    plt.figure(figsize=(20, 230))
-    fig.savefig("test.png")
     plt.show()
     
     return prep_time_dict
@@ -107,7 +103,7 @@ def get_cooking_time_graph(countries,files):
 
     
 #if __name__ == '__main__':
-    #files_names=['allrecipes_China.pkl','allrecipes_France.pkl','allrecipes_Greece.pkl','allrecipes_India.pkl','allrecipes_Italy.pkl','allrecipes_Japan.pkl','allrecipes_Korea.pkl','allrecipes_Mexico.pkl','allrecipes_Thai.pkl','allrecipes_US.pkl']    
+    #files_names=['data/allrecipes_China.pkl','data/allrecipes_France.pkl','data/allrecipes_Greece.pkl','data/allrecipes_India.pkl','data/allrecipes_Italy.pkl','data/allrecipes_Japan.pkl','data/allrecipes_Korea.pkl','data/allrecipes_Mexico.pkl','data/allrecipes_Thai.pkl','data/allrecipes_US.pkl']    
     #country_names = ['China','France','Greece','India','Italy','Japan','Korea','Mexico','Thai','USA']
     #get_cooking_time_graph(country_names,files_names)
 

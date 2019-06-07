@@ -83,3 +83,10 @@ def get_food_popularity_graph(countries,files):
 	plt.show()
 
 	return rating_dict
+
+
+#if __name__ == '__main__':
+    #files_names=['data/allrecipes_China.pkl','data/allrecipes_France.pkl','data/allrecipes_Greece.pkl','data/allrecipes_India.pkl','data/allrecipes_Italy.pkl','data/allrecipes_Japan.pkl','data/allrecipes_Korea.pkl','data/allrecipes_Mexico.pkl','data/allrecipes_Thai.pkl','data/allrecipes_US.pkl']    
+    #country_names = ['China','France','Greece','India','Italy','Japan','Korea','Mexico','Thai','USA']
+    #get_food_popularity_graph(country_names,files_names)
+
