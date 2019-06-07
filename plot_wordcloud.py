@@ -70,7 +70,7 @@ class plot_wordcloud:
 
         return freqs
     
-    def plot_wordcloud(self, background, save_path='./wc.png', log_scale=True):
+    def plot_wordcloud(self, background='./img/India.png', save_path='./img/wc.png', log_scale=True):
         '''
         Plot wordcloud of ingredients
         
@@ -109,4 +109,4 @@ class plot_wordcloud:
 
 if __name__ == '__main__':
 	wc = plot_wordcloud('Thai')
-	wc.plot_wordcloud(background = '../Thai.png', save_path = '../wc_Thai.png', log_scale = True)
+	wc.plot_wordcloud(background = './img/Thai.png', save_path = './img/wc_Thai.png', log_scale = True)
