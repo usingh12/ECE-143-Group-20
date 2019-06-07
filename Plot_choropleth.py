@@ -12,12 +12,6 @@ def geoplot():
     '''
     This function is used to plot choropleth
     of countries according to the obesiry data.
-    -------------------------------------------
-    Parameters:
-    json_data: 
-    - Type: string
-    - Json data of countries in a string type 
-      object.
     '''
 
     shapefile = './data/countries_110m/ne_110m_admin_0_countries.shp'
