@@ -56,7 +56,7 @@ def freq_ingredient(contents=None):
             
     #return ingredient_out
 
-def average_consumption(ingredient_sort, country_name):
+def average_consumption(ingredient_sort=None, country_name=None):
     '''
     This function calcuates the avregae consumption
     of the food items for a country within a 
@@ -133,7 +133,7 @@ def average_consumption(ingredient_sort, country_name):
             
     return avg_consumption
 
-def polar_plot(ingredient_consumption, ingredient_freq):
+def polar_plot(ingredient_consumption=None, ingredient_freq=None):
     
     '''
     This function is used to plot the polar plot for 
