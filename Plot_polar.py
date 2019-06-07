@@ -6,7 +6,7 @@ import collections
 from nltk.corpus import wordnet as wn
 import matplotlib.pyplot as plt
 
-def freq_ingredient(contents):
+def freq_ingredient(contents=None):
     '''
     This function lemmatizes the ingredient found in
     the recipe for a country and removes common,
@@ -25,6 +25,9 @@ def freq_ingredient(contents):
     - A list of tuples containing top 5 most frequent
     items from the scraped data.
     '''
+    assert contents is not None
+    assert isinstance(contents, list)
+    assert all([isinstance(x, dict) for x in contents])
     
     ingredients = []
     for i in range(len(contents)):
@@ -74,6 +77,12 @@ def average_consumption(ingredient_sort, country_name):
     - A dictionory of ingredients as key and its average 
     consumption as the value.
     '''
+
+    assert ingredient_sort is not None
+    assert country_name is not None
+    assert isinstance(ingredient_sort, list)
+    assert isinstance(country_name, str)
+    assert all([isinstance(x, tuple) for x in ingredient_sort])
     
     data = pd.read_csv("./data/FAO.csv", encoding='latin-1')
     llist=['Area', 'Item', 'Y2013']
@@ -141,6 +150,12 @@ def polar_plot(ingredient_consumption, ingredient_freq):
     - A list of tuples containing top 5 most frequent
       items from the scraped data.
     '''
+
+    assert ingredient_freq is not None
+    assert ingredient_consumption is not None
+    assert isinstance(ingredient_freq, list)
+    assert isinstance(ingredient_consumption, dict)
+    assert all([isinstance(x, tuple) for x in ingredient_freq])
     
     categories = list(ingredient_consumption.keys())
     N = len(categories)
