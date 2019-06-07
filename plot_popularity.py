@@ -2,9 +2,10 @@ import pickle
 import math
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 from preprocess import preprocess
 
-def get_food_popularity_graph(countries,files):
+def get_food_popularity_graph(countries):
     '''
     This function takes in 2 lists of strings as an input. One 
     is a list of all the countries we are analyzing, and the second
@@ -15,20 +16,15 @@ def get_food_popularity_graph(countries,files):
     
     Args:
     countries: list of strings representing countries
-    files: list of strings representing pickle files
 
     Returns:
-    Bar plot representing countries popularities in terms of food
-    Also returns a dictionary with names of countries and their average 
-    food rating
     '''
 
-    assert(len(countries)==len(files)), "length of countries and number of files don't match"
     assert(isinstance(countries,list)), "countries has to of type list"
-    assert(isinstance(files,list)),"files has to be of type list"
     assert(all(isinstance(x, str) for x in countries)), 'all contents of countries need to be of type string'
-    assert(all(isinstance(x, str) for x in files)), 'all contents of files need to be of type string'
 
+    files = [os.path.join('./data', 'allrecipes_' + country + '.pkl') for country in countries]
+    
     #Analysis section
     rating_dict = {}
     for i in range(len(countries)):
@@ -78,11 +74,9 @@ def get_food_popularity_graph(countries,files):
 
     plt.show()
 
-    return rating_dict
-
 
 #if __name__ == '__main__':
     #files_names=['data/allrecipes_China.pkl','data/allrecipes_France.pkl','data/allrecipes_Greece.pkl','data/allrecipes_India.pkl','data/allrecipes_Italy.pkl','data/allrecipes_Japan.pkl','data/allrecipes_Korea.pkl','data/allrecipes_Mexico.pkl','data/allrecipes_Thai.pkl','data/allrecipes_US.pkl']    
-    #country_names = ['China','France','Greece','India','Italy','Japan','Korea','Mexico','Thai','USA']
+    #country_names = ['China','France','Greece','India','Italy','Japan','Korea','Mexico','Thai','US']
     #get_food_popularity_graph(country_names,files_names)
 
