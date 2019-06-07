@@ -1,3 +1,19 @@
+import pickle
+import os
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import string
+
+import wordcloud
+from collections import defaultdict
+from PIL import Image
+
+import nltk
+nltk.download('wordnet')
+from nltk.corpus import wordnet
+from preprocess import preprocess
+
 class plot_wordcloud:
     
     def __init__(self, country):
@@ -12,7 +28,7 @@ class plot_wordcloud:
         
         assert country in ['India', 'Japan', 'Korea', 'China', 'Thai', 'Italy', 'France', 'Greece', 'Mexico', 'US']
         
-        with open('./allrecipes_' + country + '.pkl', 'rb') as f:
+        with open('./data/allrecipes_' + country + '.pkl', 'rb') as f:
             self.df = pd.DataFrame(preprocess(pickle.load(f)))['ingredients']
 
     def count_ingredients(self, log_scale=True):
@@ -54,7 +70,7 @@ class plot_wordcloud:
 
         return freqs
     
-    def plot_wordcloud(self, background='./India.png', save_path='./wc.png', log_scale=True):
+    def plot_wordcloud(self, background, save_path='./wc.png', log_scale=True):
         '''
         Plot wordcloud of ingredients
         
@@ -90,3 +106,7 @@ class plot_wordcloud:
         plt.autoscale(tight=True)
         plt.imshow(wc.recolor(color_func=image_colors), interpolation="bilinear")
         plt.savefig(save_path, dpi=600)
+
+if __name__ == '__main__':
+	wc = plot_wordcloud('Thai')
+	wc.plot_wordcloud(background = '../Thai.png', save_path = '../wc_Thai.png', log_scale = True)
