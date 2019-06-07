@@ -1,3 +1,12 @@
+import pickle
+import numpy as np
+import pandas as pd
+import os
+import bokeh
+import bokeh.plotting
+import bokeh.io
+from preprocess import preprocess
+
 countries_shortcut = {'India': 'IND', 'Japan': 'JPN', 'Korea': 'KOR', 'China': 'CHN', 'Thai': 'THA', 'Italy': 'ITA', 'France': 'FRC', 'Greece': 'GRC', 'Mexico': 'MEX', 'US': 'USA'}
 
 class plot_nutrition:
@@ -54,7 +63,7 @@ class plot_nutrition:
 
         dfs = []
         for country in countries:
-            with open('./allrecipes_' + country + '.pkl', 'rb') as f:
+            with open('./data/allrecipes_' + country + '.pkl', 'rb') as f:
                 dfs.append(pd.DataFrame(preprocess(pickle.load(f))))
 
         means = []
@@ -153,3 +162,9 @@ class plot_nutrition:
         bokeh.plotting.save(bokeh.layouts.column(bokeh.layouts.row(figures[:3]), bokeh.layouts.row(figures[3:])))
 #         bokeh.io.export_png(bokeh.layouts.row([figures[0], figures[1], figures[3]]), 'lr_1.png')
 #         bokeh.io.export_png(bokeh.layouts.row([figures[2], figures[4], figures[5]]), 'lr_2.png')
+
+
+if __name__ == '__main__':
+	n = plot_nutrition()
+	n.plot_bar_line()
+	n.plot_scatter()
