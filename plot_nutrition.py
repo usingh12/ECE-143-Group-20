@@ -122,8 +122,8 @@ class plot_nutrition:
 
         Tabs = bokeh.models.Tabs(tabs=tabs)
         bokeh.plotting.output_file(save_path)
-	bokeh.plotting.save(Tabs)
-	bokeh.plotting.show(Tabs)
+        bokeh.plotting.save(Tabs)
+        bokeh.plotting.show(Tabs)
         
     def plot_scatter(self, save_path='./img/lr.html'):
         '''
@@ -161,12 +161,12 @@ class plot_nutrition:
 
         bokeh.plotting.output_file(save_path)
         bokeh.plotting.save(bokeh.layouts.column(bokeh.layouts.row(figures[:3]), bokeh.layouts.row(figures[3:])))
-	bokeh.plotting.show(bokeh.layouts.column(bokeh.layouts.row(figures[:3]), bokeh.layouts.row(figures[3:])))
+        bokeh.plotting.show(bokeh.layouts.column(bokeh.layouts.row(figures[:3]), bokeh.layouts.row(figures[3:])))
 #         bokeh.io.export_png(bokeh.layouts.row([figures[0], figures[1], figures[3]]), 'lr_1.png')
 #         bokeh.io.export_png(bokeh.layouts.row([figures[2], figures[4], figures[5]]), 'lr_2.png')
 
 
 if __name__ == '__main__':
-	n = plot_nutrition()
-	n.plot_bar_line()
-	n.plot_scatter()
+    n = plot_nutrition()
+    n.plot_bar_line()
+    n.plot_scatter()
