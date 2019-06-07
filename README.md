@@ -41,6 +41,7 @@ The objective of this project was to see if there is any correlation between dif
 ├── scrape.py
 └── scrapeURL.py
 ```
+```
 > 'Allrecipes.com' Website
 >--scrapeURL.py --> To get the URL for all the food items necessary 
 >--scrape.py --> To get the nutritional facts off of the website
@@ -52,6 +53,7 @@ The objective of this project was to see if there is any correlation between dif
 	-----plot_popularity.py --> Script for plots of popularity 
 	-----plot_wordcloud.py --> Script for plots of ingredients wordcloud 
 	-----------Jupiter Notebook --> to run scripts and display plots
+```
 
 ## Instructions on running the code
 > Python Version: 3.7.0
