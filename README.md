@@ -90,7 +90,9 @@ pip3 install beautifulsoup4
 > scrapeURL('https://www.allrecipes.com/recipes/17138/world-cuisine/european/french/main-dishes/?page=', 9, 'url_France.pkl')
 2. Run scrape.py to scrpate the raw data from the 'allrecipes' wbsite. It takes in the URL present in the pickle file generated from running scrapeURL.py script.
 Example:
-> scrapeURL('url_file_path', 'save_path')
+> Example:
+>scrape('./data/url_France.pkl', save_path = './data/allrecipes_France.pkl')
 3. Run preprocess.py to process the raw data.
+> Example:
 > preprocess(pickle.load(pickle_file_name))
 
