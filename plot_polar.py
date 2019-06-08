@@ -26,7 +26,7 @@ def freq_ingredient(contents):
     ingredient_sort: 
     - Type: list of tuples
     - A list of tuples containing top 5 most frequent
-    items from the scraped data.
+      items from the scraped data.
     '''
 
     assert isinstance(contents, list)
@@ -69,16 +69,16 @@ def average_consumption(ingredient_sort, country_name):
     ingredient_sort:
     - Type: List
     - A list of ingredient names scraped from 
-    allrecipes.com
+      allrecipes.com
     country_name: 
-    -Name of the country we want the food stat for
-    -Type: string
+    - Name of the country we want the food stat for.
+    - Type: string
     -------------------------------------------
     Returns
     avg_consumption:
     -Type: Dictionary
     - A dictionory of ingredients as key and its average 
-    consumption as the value.
+      consumption as the value.
     '''
 
     assert isinstance(ingredient_sort, list)
@@ -135,21 +135,16 @@ def average_consumption(ingredient_sort, country_name):
     return avg_consumption
 
 def polar_plot(country):
-    
     '''
     This function is used to plot the polar plot for 
     correlation of ingredient frequency and average 
     consumption of the food item.
     ----------
     Parameters:
-    ingredient_consumption:
-    - Type: Dictionary
-    - A dictionory of ingredients as key and its average 
-      consumption as the value.
-    ingredient_freq:
-    - Type: List of tuple
-    - A list of tuples containing top 5 most frequent
-      items from the scraped data.
+    country:
+    - Type: String
+    - Name of the country we would be plotting the
+      polar plot.
     '''
 
     assert isinstance(country, str)
