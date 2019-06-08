@@ -81,15 +81,16 @@ pip3 install beautifulsoup4
 ```
 
 ### Running the code
+#### Plot 
+1. Run the main.ipynb jupyter notebook to retreive all the relevant plots in the presentation slide.
+2. Additional instructions about running the code have been provided in the jupyter notebook.
 #### Scraping the data
 1. Run scrapeURL.py script to scrape the URL list for countries from 'allrecipes' website.
 > Example:
 > scrapeURL('https://www.allrecipes.com/recipes/17138/world-cuisine/european/french/main-dishes/?page=', 9, 'url_France.pkl')
 2. Run scrape.py to scrpate the raw data from the 'allrecipes' wbsite. It takes in the URL present in the pickle file generated from running scrapeURL.py script.
 Example:
-> scrapeURL('url_file', 'save_path')
+> scrapeURL('url_file_path', 'save_path')
 3. Run preprocess.py to process the raw data.
 > preprocess(pickle.load(pickle_file_name))
-#### Plot 
-1. Run the main.ipynb jupyter notebook to retreive all the relevant plots in the presentation slide.
-2. Additional instructions about running the code have been provided in the jupyter notebook.
+
