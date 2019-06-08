@@ -28,8 +28,10 @@ The objective of this project was to see if there is any correlation between dif
 ## File Structure 
 ```bash
 ├── README.md
-├── data - Directory having the crwaled data in pickle format
-├── img - Directory having images of the plot
+├── data
+│   └──
+├── img
+│   └──
 ├── main.ipynb
 ├── plot_choropleth.py
 ├── plot_cooktime.py
@@ -41,19 +43,20 @@ The objective of this project was to see if there is any correlation between dif
 ├── scrape.py
 └── scrapeURL.py
 ```
-```
-> 'Allrecipes.com' Website
->--scrapeURL.py --> To get the URL for all the food items necessary 
->--scrape.py --> To get the nutritional facts off of the website
->--preprocess.py --> outputs the data in the form of list of dictionaries
-	-----plot_choropleth.py --> Script for geo plots of obesity rate 
-	-----plot_cooktime.py --> Script for plots of cooktime 
-	-----plot_nutrition.py --> Script for plots related to nutritions 
-	-----plot_polar.py --> Scripts for polar plots of ingredients 
-	-----plot_popularity.py --> Script for plots of popularity 
-	-----plot_wordcloud.py --> Script for plots of ingredients wordcloud 
-	-----------Jupiter Notebook --> to run scripts and display plots
-```
+
+
+- data --> Directory having the crwaled data in pickle format
+- img --> Directory having images of the plot
+- main.jpynb --> to run scripts and display plots
+- preprocess.py --> outputs the data in the form of list of dictionaries
+- plot_choropleth.py --> Script for geo plots of obesity rate 
+- plot_cooktime.py --> Script for plots of cooktime 
+- plot_nutrition.py --> Script for plots related to nutritions 
+- plot_polar.py --> Scripts for polar plots of ingredients 
+- plot_popularity.py --> Script for plots of popularity 
+- plot_wordcloud.py --> Script for plots of ingredients wordcloud
+- scrape.py --> To get the nutritional facts off of the website
+- scrapeURL.py --> To get the URL for all the food items necessary 
 
 ## Instructions on running the code
 > Python Version: 3.7.0
@@ -73,8 +76,11 @@ The objective of this project was to see if there is any correlation between dif
 
 For installing these packages, you can use either `pip3` or conda install to install packages. For example,
 
-    pip3 install beautifulsoup4
-    
- ### Running the code
- 1. Run the main.ipynb jupyter notebook to retreive all the relevant plots in the presentation slide.
- 2. Additional instructions about running the code have been provided in the jupyter notebook.
+``` Bash
+pip3 install beautifulsoup4
+```
+
+### Running the code
+ 
+1. Run the main.ipynb jupyter notebook to retreive all the relevant plots in the presentation slide.
+2. Additional instructions about running the code have been provided in the jupyter notebook.
